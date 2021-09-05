@@ -5,14 +5,13 @@ ruby '>= 2.4.0', '< 2.7.0'
 
 gem 'pkg-config', '~> 1.3'
 
-gem 'puma', '~> 3.12'
-gem 'rails', '~> 5.2.3'
+gem 'puma', '~> 5.0'
+gem 'rails', '6.0.3.7'
 gem 'thor', '~> 0.20'
 
 gem 'hamlit-rails', '~> 0.2'
-gem 'pg', '~> 1.1'
-gem 'makara', '~> 0.4'
-gem 'pghero', '~> 2.2'
+gem 'pg', '~> 1.2.3'
+gem 'pghero', '~> 2.7.0'
 gem 'dotenv-rails', '~> 2.7'
 
 gem 'aws-sdk-s3', '~> 1.41', require: false
@@ -31,7 +30,9 @@ gem 'charlock_holmes', '~> 0.7.6'
 gem 'iso-639'
 gem 'chewy', '~> 5.0'
 gem 'cld3', '~> 3.2.4'
-gem 'devise', '~> 4.6'
+git 'https://github.com/freespeech4ever/devise.git', branch: 'gab2' do
+  gem 'devise'
+end
 gem 'devise-two-factor', '~> 3.0'
 
 group :pam_authentication, optional: true do
@@ -59,7 +60,7 @@ gem 'kaminari', '~> 1.1'
 gem 'link_header', '~> 0.0'
 gem 'mime-types', '~> 3.2', require: 'mime/types/columnar'
 gem 'nokogiri', '~> 1.10'
-gem 'nsa', '~> 0.2'
+# gem 'nsa', '~> 0.2'
 gem 'oj', '~> 3.7'
 gem 'ostatus2', '~> 2.0'
 gem 'ox', '~> 2.10'
@@ -68,13 +69,13 @@ gem 'pundit', '~> 2.0'
 gem 'premailer-rails'
 gem 'rack-attack', '~> 6.0'
 gem 'rack-cors', '~> 1.0', require: 'rack/cors'
-gem 'rails-i18n', '~> 5.1'
+gem 'rails-i18n', '~> 6.0.0'
 gem 'rails-settings-cached', '~> 0.6'
-gem 'redis', '~> 4.1', require: ['redis', 'redis/connection/hiredis']
+gem 'redis', '~> 4.2', require: ['redis', 'redis/connection/hiredis']
 gem 'mario-redis-lock', '~> 1.2', require: 'redis_lock'
 gem 'rqrcode', '~> 0.10'
 gem 'sanitize', '~> 5.0'
-gem 'sidekiq', '~> 5.2'
+gem 'sidekiq', '~> 6.0'
 gem 'sidekiq-scheduler', '~> 3.0'
 gem 'sidekiq-unique-jobs', '~> 6.0'
 gem 'sidekiq-bulk', '~>0.2.0'
@@ -94,6 +95,8 @@ gem 'json-ld', '~> 3.0'
 gem 'json-ld-preloaded', '~> 3.0'
 gem 'rdf-normalize', '~> 0.3'
 
+gem 'redcarpet', '~> 3.4'
+
 group :development, :test do
   gem 'fabrication', '~> 2.20'
   gem 'fuubar', '~> 2.3'
@@ -110,7 +113,6 @@ end
 group :test do
   gem 'capybara', '~> 3.22'
   gem 'climate_control', '~> 0.2'
-  gem 'faker', '~> 1.9'
   gem 'microformats', '~> 4.1'
   gem 'rails-controller-testing', '~> 1.0'
   gem 'rspec-sidekiq', '~> 3.0'
@@ -125,6 +127,8 @@ group :development do
   gem 'better_errors', '~> 2.5'
   gem 'binding_of_caller', '~> 0.7'
   gem 'bullet', '~> 6.0'
+  gem 'faker', '~> 2.15'
+  gem 'listen'
   gem 'letter_opener', '~> 1.7'
   gem 'letter_opener_web', '~> 1.3'
   gem 'memory_profiler'
@@ -139,12 +143,17 @@ group :development do
   gem 'capistrano-yarn', '~> 2.0'
 
   gem 'derailed_benchmarks'
+  gem 'rack-mini-profiler'
   gem 'stackprof'
+  gem 'benchmark-ips'
 end
 
 group :production do
   gem 'lograge', '~> 0.11'
-  gem 'redis-rails', '~> 5.0'
 end
 
 gem 'concurrent-ruby', require: false
+
+gem "elastic-apm", "~> 3.13"
+gem 'similar_text', '~> 0.0.4'
+gem 'recaptcha'
